@@ -3,6 +3,7 @@ package cnabookstore.order;
 import cnabookstore.order.config.kafka.KafkaProcessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
@@ -17,6 +18,9 @@ public class AbstractEvent {
 
     String eventType;
     String timestamp;
+
+//    @Autowired
+//    KafkaProcessor processor;
 
     public AbstractEvent(){
         this.setEventType(this.getClass().getSimpleName());

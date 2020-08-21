@@ -1,6 +1,7 @@
 package cnabookstore.order;
 
 import javax.persistence.*;
+
 import org.springframework.beans.BeanUtils;
 
 import cnabookstore.order.external.Book;
@@ -21,21 +22,18 @@ public class Order {
 
     @PostPersist
     public void onPostPersist(){
+
         Ordered ordered = new Ordered();
         BeanUtils.copyProperties(this, ordered);
         ordered.publishAfterCommit();
-
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
     }
 
     @PrePersist
     public void onPrePersist(){
 
-        Book book ;
         // mappings goes here
-        book = OrderApplication.applicationContext.getBean(BookService.class)
+        Book book = OrderApplication.applicationContext.getBean(BookService.class)
                 .queryBook(bookId);
 
     }
@@ -48,50 +46,47 @@ public class Order {
     }
 
 
+    // getters and setters
     public Long getOrderId() {
         return orderId;
     }
-
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
+
     public Long getBookId() {
         return bookId;
     }
-
     public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
+
     public Long getCustomerId() {
         return customerId;
     }
-
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
+
     public Integer getQuantity() {
         return quantity;
     }
-
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
-
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
+
     public String getOrderStatus() {
         return orderStatus;
     }
-
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-
-
-
 
 }

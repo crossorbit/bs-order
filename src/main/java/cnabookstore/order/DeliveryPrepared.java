@@ -1,6 +1,8 @@
 
 package cnabookstore.order;
 
+import cnabookstore.order.AbstractEvent;
+
 public class DeliveryPrepared extends AbstractEvent {
 
     private Long id;

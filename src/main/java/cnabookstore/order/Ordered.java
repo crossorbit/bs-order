@@ -1,6 +1,8 @@
 
 package cnabookstore.order;
 
+import cnabookstore.order.AbstractEvent;
+
 public class Ordered extends AbstractEvent {
 
     private Long orderId;

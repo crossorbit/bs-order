@@ -41,6 +41,7 @@ api:
   url:
     book: http://localhost:8084
     customer: http://localhost:8083
+    delivery: http://localhost:8082
 ---
 
 spring:
@@ -68,5 +69,6 @@ spring:
           contentType: application/json
 api:
   url:
-    book: http://book:8084
-    customer: http://customer:8083
+    book: http://book:8080
+    customer: http://customer:8080
+    delivery: http://delivery:8082
