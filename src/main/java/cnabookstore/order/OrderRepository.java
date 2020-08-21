@@ -1,4 +1,4 @@
-package cnabookstore;
+package cnabookstore.order;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

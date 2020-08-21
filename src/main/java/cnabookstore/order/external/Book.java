@@ -1,4 +1,4 @@
-package cnabookstore.external;
+package cnabookstore.order.external;
 
 public class Book {
 

@@ -1,5 +1,5 @@
 
-package cnabookstore;
+package cnabookstore.order;
 
 public class DeliveryPrepared extends AbstractEvent {
 

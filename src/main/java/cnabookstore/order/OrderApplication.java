@@ -1,5 +1,5 @@
-package cnabookstore;
-import cnabookstore.config.kafka.KafkaProcessor;
+package cnabookstore.order;
+import cnabookstore.order.config.kafka.KafkaProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
