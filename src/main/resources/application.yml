@@ -4,6 +4,8 @@ server:
 
 spring:
   profiles: default
+  pid:
+    file: test.pid
   jpa:
     properties:
       hibernate:
@@ -30,7 +32,6 @@ spring:
         event-out:
           destination: cnabookstore
           contentType: application/json
-
 logging:
   level:
     org.hibernate.type: trace
@@ -42,10 +43,13 @@ api:
     book: http://localhost:8084
     customer: http://localhost:8083
     delivery: http://localhost:8082
+    coupon: http://localhost:8085
 ---
 
 spring:
   profiles: docker
+  pid:
+    file: test.pid
   cloud:
     stream:
       kafka:
@@ -67,8 +71,14 @@ spring:
         event-out:
           destination: cnabookstore
           contentType: application/json
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://kissable-aardvark-mysql.default.svc.cluster.local:3306/cnabookstore?serverTimezone=UTC&characterEncoding=UTF-8
+#    username: cnabooksore
+#    password: cnabookstore1234
 api:
   url:
-    book: http://book:8080
+    book: http://bookinventory:8080
     customer: http://customer:8080
-    delivery: http://delivery:8082
+    delivery: http://delivery:8080
+    coupon: http://coupon:8080

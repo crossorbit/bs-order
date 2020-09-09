@@ -1,18 +1,24 @@
 
 package cnabookstore.order;
 
-import cnabookstore.order.AbstractEvent;
-
 public class Ordered extends AbstractEvent {
 
+    private Long id;
     private Long orderId;
     private Long bookId;
     private Long customerId;
     private Integer quantity;
     private String deliveryAddress;
     private String orderStatus;
+    private long couponId;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Long getOrderId() {
         return orderId;
     }
@@ -54,5 +60,13 @@ public class Ordered extends AbstractEvent {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public long getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(long couponId) {
+        this.couponId = couponId;
     }
 }
